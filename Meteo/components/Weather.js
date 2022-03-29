@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import Prototypes from "prop-types";
 import { WeatherConditions } from "../../utilities/WeatherCondition";
 
 const Weather = ({ weather, temperature }) => {
@@ -14,11 +15,17 @@ const Weather = ({ weather, temperature }) => {
         <Text style={styles.tempText}>{temperature}</Text>
       </View>
       <View style={styles.bodyContainer}>
-        <Text style={styles.title}>{}</Text>
-        <Text style={styles.subtitle}>{}</Text>
+        <Text style={styles.title}>{WeatherConditions[weather].title}</Text>
+        <Text style={styles.subtitle}>
+          {WeatherConditions[weather].subtitle}
+        </Text>
       </View>
     </View>
   );
+};
+
+Weather.prototype = {
+  temperature: Prototypes,
 };
 
 const styles = StyleSheet.create({
